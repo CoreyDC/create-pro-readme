@@ -1,19 +1,79 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+// FUNCTION TO RENDER THE LICENSE BADGE
+function renderLicenseBadge(license) {
+  if ( license === 'MIT' ) {
+    return '![Github license](https://img.shields.io/badge/license-MIT-orange?style=for-the-badge&logo=appveyor)';
+  }
+  if ( license === 'Apache' ) {
+    return '![Github license](https://img.shields.io/badge/license-Apache-orange?style=for-the-badge&logo=appveyor)';
+  }
+  if ( license === 'GPL' ) {
+    return '![Github license](https://img.shields.io/badge/license-GPL-orange?style=for-the-badge&logo=appveyor)';
+  }
+  else {
+    return 'N/A';
+  }
+} 
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
+// FUNCTION TO LINK THE LICENSE BADGE TO A URL PROVIDING INFO ON THE LICENSE
+function renderLicenseLink(license) {
+  if ( license === 'MIT' ) {
+    return 'https://opensource.org/license/mit/';
+  }
+  if ( license === 'Apache' ) {
+    return 'https://www.apache.org/licenses/LICENSE-2.0';
+  }
+  if ( license === 'GPL' ) {
+    return 'https://www.gnu.org/licenses/gpl-3.0.en.html';
+  }
+  else {
+    return;
+  }
+}
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
 
-// TODO: Create a function to generate markdown for README
+
+// FUNCTION TO GENERATE THE MARKDOWN FOR THE README FILE
 function generateMarkdown(data) {
-  return `# ${data.title}
+  return `
+  # ${data.title}
 
+  ## License
+
+  [${renderLicenseBadge(data.license)}](${renderLicenseLink(data.license)})
+
+  ## Description 
+  
+  ${data.description}
+
+  ## Table Of Contents
+
+  [Installation](#installation)
+  
+  [Usage](#usage)
+  
+  [Credits](#credits)
+  
+  [Contact](#contact)
+
+  ## Installation
+
+  ${data.installation}
+
+  ## Usage
+
+  ${data.usage}
+
+  ## Credits
+
+  ${data.credits}
+
+  ## Contact
+
+  If you have any questions, comments or concerns contact me here:
+
+  [GitHub](https://github.com/${data.github})
+  
+  [Email](mailto:${data.email}?subject=hi%20there!)
 `;
 }
 
